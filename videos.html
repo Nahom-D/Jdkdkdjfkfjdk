@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Library</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f7f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #0073e6;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #0073e6;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .video {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .video video {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .download-btn {
+      background-color: #0073e6;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #005bb5;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #777;
+      background: #f3f7f9;
+      margin-top: 30px;
+      border-top: 1px solid #ddd;
+    }
+
+    .footer a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    nav {
+        margin-top:15px;
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Video Library
+  </header>
+     <nav>
+      
+      <a href="comment.html">Comment</a>
+        <a href="videos.html">Video Library</a>
+        <a href="index.html">Book Library</a>
+        <a href="picture.html">Gallery Library</a></nav>
+  <div class="container">
+    <h1>Available Videos</h1>
+    <div class="gallery">
+      <!-- Videos will be dynamically added -->
+    </div>
+  </div>
+  <footer class="footer">
+    &copy; 2025 Video Library. Designed by <a href="#">Nahom Debebe</a>.
+  </footer>
+
+  <script>
+    const gallery = document.querySelector('.gallery');
+    const totalVideos = 20;
+
+    for (let i = 1; i <= totalVideos; i++) {
+      const videoDiv = document.createElement('div');
+      videoDiv.className = 'video';
+
+      const video = document.createElement('video');
+      video.src = `video${i}.mp4`;
+      video.controls = true;
+
+      const button = document.createElement('button');
+      button.className = 'download-btn';
+      button.textContent = 'Download';
+      button.onclick = () => downloadVideo(`video${i}.mp4`);
+
+      videoDiv.appendChild(video);
+      videoDiv.appendChild(button);
+      gallery.appendChild(videoDiv);
+    }
+        
+    function downloadVideo(fileName) {
+      const link = document.createElement('a');
+      link.href = fileName;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
