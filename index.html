@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    header {
+      background: linear-gradient(90deg, #4caf50, #45a049);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h1 {
+      font-size: 1.8rem;
+      color: #4caf50;
+      text-align: center;
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+
+    /* Book List Styling */
+    .book {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .book:last-child {
+      border-bottom: none;
+    }
+
+    .book-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .download-btn {
+      background: linear-gradient(90deg, #4caf50, #45a049);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .download-btn:hover {
+      background: #3e8e41;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 600px) {
+      .book {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .download-btn {
+        margin-top: 10px;
+      }
+    }
+    nav {
+        margin-top:15px;
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📚 Welcome to the IT CLUB DIGITAL Library</h1>
+  </header>
+        <nav>
+      <a href="index.html">Home</a>
+      <a href="comment.html">Comment</a>
+        <a href="videos.html">Video Library</a>
+        <a href="index.html">Book Library</a>
+        <a href="picture.html">Gallery Library</a>
+    </nav>
+  <div class="container">
+    <h1>Available Books</h1>
+    <div class="book">
+      <span class="book-title">100 Java Programs </span>
+      <button class="download-btn" onclick="downloadBook('book1.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">CSS_Notes</span>
+      <button class="download-btn" onclick="downloadBook('book2.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">HTML NOTES BY SUBBA RAJ SIR</span>
+      <button class="download-btn" onclick="downloadBook('book3.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">HTML, CSS, BOOTSTRAP, JAVASCRIPT, JQUERY, PHP -1 (1)</span>
+      <button class="download-btn" onclick="downloadBook('book4.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">HTML, CSS, BOOTSTRAP, JAVASCRIPT, JQUERY, PHP -1</span>
+      <button class="download-btn" onclick="downloadBook('book5.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">HTML.PDF</span>
+      <button class="download-btn" onclick="downloadBook('book6.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">Java complete Guide</span>
+      <button class="download-btn" onclick="downloadBook('book7.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">java_script notes 📝 </span>
+      <button class="download-btn" onclick="downloadBook('book8.pdf')">Download</button>
+    </div>
+    <div class="book">
+      <span class="book-title">JAVASCRIPT NOTES FOR BEGINNERS</span>
+      <button class="download-btn" onclick="downloadBook('book9.pdf')">Download</button>
+    </div>
+   
+  </div>
+
+  <script>
+    function downloadBook(fileName) {
+      const link = document.createElement('a');
+      link.href = fileName;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
